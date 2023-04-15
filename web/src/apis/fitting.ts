@@ -41,12 +41,12 @@ interface ExoplanetPlot {
   juipiter_radius_ratio: number
 }
 
-const BASE_URL = import.meta.env.VITE_BASE_URL
+const API_URL = import.meta.env.VITE_API_URL
 
 async function fittingBatman(
   body: FittingBatmanInput
 ): Promise<FittingResponse> {
-  const response = await fetch(`${BASE_URL}/plot-batman`, {
+  const response = await fetch(`${API_URL}/plot-batman`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ async function plotExoplanet(
   query: ExoplanetPlotInput
 ): Promise<ExoplanetPlotResponse> {
   const response = await fetch(
-    `${BASE_URL}/plot-exoplanet?host_name=${query.host_name}&t0=${query.t0}&rp=${query.rp}&a=${query.a}&inc=${query.inc}`
+    `${API_URL}/plot-exoplanet?host_name=${query.host_name}&t0=${query.t0}&rp=${query.rp}&a=${query.a}&inc=${query.inc}`
   )
   return response.json()
 }

@@ -3,7 +3,7 @@ import { useElementSize } from 'usehooks-ts'
 import useExoplanet from 'hooks/useExoplanet'
 import { useMemo, useState } from 'react'
 import { classNames } from 'utils'
-const BASE_URL = import.meta.env.VITE_BASE_URL
+const API_URL = import.meta.env.VITE_API_URL
 
 interface ISelectedArea {
   x: number
@@ -20,7 +20,7 @@ const ImageSlider = (props: ImageSliderProps) => {
   const { exoplanet } = useExoplanet()
   const imageURL = useMemo(() => {
     if (exoplanet) {
-      return `${BASE_URL}/images/${exoplanet.name}/${currentPage}.jpg`
+      return `${API_URL}/images/${exoplanet.name}/${currentPage}.jpg`
     } else {
       return ''
     }
