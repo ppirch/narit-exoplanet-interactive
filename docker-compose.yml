@@ -32,5 +32,3 @@ services:
       dockerfile: web.dockerfile
     ports:
       - "8888:80"
-    environment:
-      VITE_API_URL: http://0.0.0.0:8000
