@@ -1,4 +1,3 @@
 /data/mongo
 .pnpm-store
-.vscode
 .env

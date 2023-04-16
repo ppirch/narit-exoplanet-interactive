@@ -1,0 +1,9 @@
+{
+  "python.formatting.provider": "black",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
