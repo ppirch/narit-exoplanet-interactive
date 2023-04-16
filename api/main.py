@@ -5,6 +5,8 @@ from routers import batman_plot, exoplanet_plot, exoplanets
 
 origins = [
     "https://exo-web.ppirch.me",
+    "http://0.0.0.0:5173",
+    "http://localhost:5173",
     "http://0.0.0.0:8888",
     "http://localhost:8888"
 ]
@@ -27,6 +29,6 @@ app.mount("/images", StaticFiles(directory="images"), name="images")
 @app.get("/")
 async def root():
     return {
-        "api":"hello world eiei exoplanet interactive education api",
+        "api":"hello world exoplanet interactive education api",
         "docs": "/docs"
     }
