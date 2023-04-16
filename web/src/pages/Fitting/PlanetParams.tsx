@@ -118,7 +118,7 @@ const PlanetParams = (props: PlanetParamsProps) => {
         <button
           onClick={() => resetFittingParams()}
           type="submit"
-          className="mx-2 inline-flex min-w-[5rem] justify-center rounded-md border border-transparent bg-red-500 px-4 py-2 font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+          className="mx-2 inline-flex h-10 min-w-[5rem] justify-center rounded-md border border-transparent bg-red-500 px-4 py-2 font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
         >
           Reset
         </button>
@@ -126,7 +126,7 @@ const PlanetParams = (props: PlanetParamsProps) => {
         <button
           onClick={() => navigate('/benchmark')}
           type="submit"
-          className="mx-2 inline-flex min-w-[5rem] justify-center  rounded-md border border-transparent bg-blue-500 px-4 py-2 font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="mx-2 inline-flex h-10 min-w-[5rem] justify-center  rounded-md border border-transparent bg-blue-500 px-4 py-2 font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
           Next
         </button>

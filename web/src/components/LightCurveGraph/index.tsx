@@ -12,6 +12,7 @@ interface LightCurveGraphProps {
   bestFlux?: number[]
   displaySynthetic?: boolean
   displayData?: boolean
+  displayLabel?: boolean
 }
 
 const LightCurveGraph = (props: LightCurveGraphProps) => {
@@ -19,6 +20,7 @@ const LightCurveGraph = (props: LightCurveGraphProps) => {
   const { defaultT, defaultFlux } = props
   const { bestT, bestFlux } = props
   const { displaySynthetic, displayData } = props
+  const { displayLabel } = props
 
   const { exoplanet } = useExoplanet()
   const flux = exoplanet?.nor_flux
@@ -69,34 +71,59 @@ const LightCurveGraph = (props: LightCurveGraphProps) => {
         type: 'scatter'
       },
       {
+        name: 'Our',
         silent: true,
         symbolSize: 1,
         data: displaySynthetic ? fittingData : [],
         type: 'line',
-        color: 'red'
+        color: 'red',
+        showSymbol: false
       },
       {
+        name: 'Intial',
         silent: true,
         symbolSize: 1,
         data: defaultData,
         type: 'line',
-        color: 'yellow'
+        color: 'yellow',
+        showSymbol: false
       },
       {
+        name: 'Best',
         silent: true,
         symbolSize: 1,
         data: bestData,
         type: 'line',
-        color: 'green'
+        color: 'green',
+        showSymbol: false
       }
     ]
+  }
+  if (displayLabel) {
+    option.legend = {
+      data: [
+        {
+          name: 'Our',
+          icon: 'rect'
+        },
+        {
+          name: 'Intial',
+          icon: 'rect'
+        },
+        {
+          name: 'Best',
+          icon: 'rect'
+        }
+      ]
+    }
   }
   return <ReactECharts option={option} style={{ minHeight: 320 }} />
 }
 
 LightCurveGraph.defaultProps = {
   displaySynthetic: true,
-  displayData: true
+  displayData: true,
+  displayLabel: false
 }
 
 export default LightCurveGraph

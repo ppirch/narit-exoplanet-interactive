@@ -56,7 +56,7 @@ const Benchmark = () => {
         err_flux: exoplanet.err_flux,
         nor_flux: exoplanet.nor_flux
       }).then((res) => {
-        setBestRes(res)
+        setDefaultRes(res)
       })
     }
   }, [exoplanet, planetParams])
@@ -72,7 +72,7 @@ const Benchmark = () => {
         err_flux: exoplanet.err_flux,
         nor_flux: exoplanet.nor_flux
       }).then((res) => {
-        setDefaultRes(res)
+        setBestRes(res)
       })
     }
   }, [bestFittingPlanetParams, exoplanet])
@@ -80,10 +80,10 @@ const Benchmark = () => {
   return (
     <Layout>
       <div>
-        <div className="flex w-full flex-col items-center justify-center rounded-md p-2 shadow-md">
+        <div className="flex w-full flex-col items-center justify-center p-2 ">
           <div className="min-h-[64px] w-full flex-1 p-2">
             <div className="flex flex-col items-center">
-              <div className="w-full">
+              <div className="w-full rounded-md bg-white shadow-md">
                 <LightCurveGraph
                   fittingT={fittingRes?.t}
                   fittingFlux={fittingRes?.flux}
@@ -91,11 +91,12 @@ const Benchmark = () => {
                   defaultFlux={defaultRes?.flux}
                   bestT={bestRes?.t}
                   bestFlux={bestRes?.flux}
+                  displayLabel={true}
                 />
               </div>
             </div>
           </div>
-          <div className="w-full flex-1 p-2">
+          <div className="w-full flex-1 rounded-md bg-white p-2 shadow-md">
             <div>Compare</div>
             <div className="flex flex-col items-center">
               <table className="table-auto">

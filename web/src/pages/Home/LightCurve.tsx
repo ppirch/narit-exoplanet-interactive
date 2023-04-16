@@ -14,7 +14,7 @@ const LightCurve = () => {
           <button
             onClick={() => navigate('/fitting')}
             type="submit"
-            className="inline-flex items-center rounded-md border border-transparent bg-ci-orange-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-ci-orange-700 focus:outline-none focus:ring-2 focus:ring-ci-orange-500 focus:ring-offset-2"
+            className="inline-flex h-10 items-center rounded-md border border-transparent bg-ci-orange-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-ci-orange-700 focus:outline-none focus:ring-2 focus:ring-ci-orange-500 focus:ring-offset-2"
           >
             Fitting
           </button>

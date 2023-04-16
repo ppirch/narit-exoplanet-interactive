@@ -65,7 +65,7 @@ const ImageSlider = (props: ImageSliderProps) => {
               type="button"
               className={classNames(
                 currentPage === 1 && 'invisible',
-                'rounded-l-md border-r border-ci-grey bg-ci-primary px-3 py-2 text-white hover:bg-ci-secondary hover:text-white'
+                'h-10 rounded-l-md border-r border-ci-grey bg-ci-primary px-3 py-2 text-white hover:bg-ci-secondary hover:text-white'
               )}
             >
               <div className="flex flex-row align-middle">
@@ -92,7 +92,7 @@ const ImageSlider = (props: ImageSliderProps) => {
               type="button"
               className={classNames(
                 currentPage === exoplanet?.numberOfImages && 'invisible',
-                'rounded-r-md border-l border-ci-grey bg-ci-primary px-3 py-2 text-white hover:bg-ci-secondary hover:text-white'
+                'h-10 rounded-r-md border-l border-ci-grey bg-ci-primary px-3 py-2 text-white hover:bg-ci-secondary hover:text-white text-sm font-medium shadow-sm '
               )}
             >
               <div className="flex flex-row align-middle">
