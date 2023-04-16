@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routers import batman_plot, exoplanet_plot, exoplanets
 
 origins = [
+    "https://exo-web.ppirch.me",
     "http://0.0.0.0:8888",
     "http://localhost:8888"
 ]
