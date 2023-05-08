@@ -38,7 +38,7 @@ const InputNumber = (props: InputNumberProps) => {
   const handleIncrement = () => {
     const oldValue = value || 0
     if (step && setValue) {
-      const newValue = parseFloat((oldValue + step).toFixed(5))
+      const newValue = parseFloat((oldValue + step).toFixed(4))
       if (maxValue !== undefined) {
         setValue(Math.min(newValue, maxValue))
       } else {
@@ -50,7 +50,7 @@ const InputNumber = (props: InputNumberProps) => {
   const handleDecrement = () => {
     const oldValue = value || 0
     if (step && setValue) {
-      const newValue = parseFloat((oldValue - step).toFixed(5))
+      const newValue = parseFloat((oldValue - step).toFixed(4))
       if (minValue !== undefined) {
         setValue(Math.max(newValue, minValue))
       } else {
@@ -62,10 +62,10 @@ const InputNumber = (props: InputNumberProps) => {
   return (
     <div className="flex w-full flex-row items-center justify-center">
       <div className="relative py-2">
-        <label className="group mx-4 flex min-w-[8rem] text-ci-content">
+        <label className="text-ci-content group mx-4 flex min-w-[8rem]">
           {title}
           {titleDescription && (
-            <div className="pointer-events-none absolute -left-1/2 bottom-3/4 z-10 ml-14 w-28 rounded-lg bg-gray-500 px-3 py-2 text-center text-xs text-ci-white opacity-0 group-hover:opacity-100">
+            <div className="text-ci-white pointer-events-none absolute -left-1/2 bottom-3/4 z-10 ml-14 w-28 rounded-lg bg-gray-500 px-3 py-2 text-center text-xs opacity-0 group-hover:opacity-100">
               {titleDescription}
             </div>
           )}
@@ -106,10 +106,10 @@ const InputNumber = (props: InputNumberProps) => {
         )}
       </div>
       <div className="relative py-2">
-        <label className="group mx-4 flex min-w-[3rem] text-ci-content">
+        <label className="text-ci-content group mx-4 flex min-w-[3rem]">
           {unit}
           {unitDescription && (
-            <div className="pointer-events-none absolute -right-1/2 bottom-3/4 z-10 ml-14 w-28 rounded-lg bg-gray-500 px-3 py-2 text-center text-xs text-ci-white opacity-0 group-hover:opacity-100">
+            <div className="text-ci-white pointer-events-none absolute -right-1/2 bottom-3/4 z-10 ml-14 w-28 rounded-lg bg-gray-500 px-3 py-2 text-center text-xs opacity-0 group-hover:opacity-100">
               {unitDescription}
             </div>
           )}
