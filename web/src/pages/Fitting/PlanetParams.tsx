@@ -57,14 +57,14 @@ const PlanetParams = (props: PlanetParamsProps) => {
 
   return (
     <div>
-      <p>PlanetParams</p>
+      <p>Planet Parameters</p>
       <div>
         <InputNumber
           title={'Period'}
           titleDescription={'คาบการโคจร'}
           unit={'Day'}
           unitDescription={'วัน'}
-          value={exoplanet?.planetParams.period}
+          value={parseFloat((exoplanet?.planetParams.period ?? 0).toFixed(4))}
           disabled={true}
         />
         <InputNumber
@@ -80,9 +80,11 @@ const PlanetParams = (props: PlanetParamsProps) => {
         <InputNumber
           title={'Radius'}
           titleDescription={'รัศมีดาวเคราะห์'}
-          unit={'Rstar'}
-          unitDescription={'รัศมีดวงดาว'}
+          unit={'Rjup'}
+          unitDescription={'รัศมีดาวพฤหัสบดี'}
           value={fittingParams?.radius}
+          minValue={0.01}
+          maxValue={2}
           step={0.001}
           setValue={setRadius}
           disabled={false}
@@ -90,10 +92,12 @@ const PlanetParams = (props: PlanetParamsProps) => {
         <InputNumber
           title={'Semi-major axis'}
           titleDescription={'ระยะครึ่งแกนหลัก'}
-          unit={'Rstar'}
-          unitDescription={'รัศมีดวงดาว'}
+          unit={'Au'}
+          unitDescription={'หน่วยดาราศาสตร์'}
           value={fittingParams?.semiMajorAxis}
-          step={0.5}
+          minValue={0.015}
+          maxValue={2}
+          step={0.005}
           setValue={setSemiMajorAxis}
           disabled={false}
         />
