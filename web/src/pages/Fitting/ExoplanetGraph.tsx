@@ -85,7 +85,11 @@ const ExoplanetGraph = (props: ExoplanetGraphProps) => {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
       <ReactECharts option={option} style={{ height: '256px' }} />
-      {/* <div>Compare a planet(Right) to Jupiter(Left)</div> */}
+      <div className="mt-2 flex flex-row items-center">
+        <div className="mr-4 h-5 w-5 rounded-full bg-orange-500"></div>
+        <div className="mr-4 h-5 w-5 rounded-full bg-slate-500"></div>
+        <span>Compare a planet(Right) to jupiter(Left)</span>
+      </div>
     </div>
   )
 }
