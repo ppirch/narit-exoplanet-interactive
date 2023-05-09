@@ -45,7 +45,8 @@ def plot_exoplanet(
     Jupiter_R = 7.15e7
     Impact_params = np.cos(np.radians(Inc)) * a / Stellar_R
     R_pl = R_pl * Stellar_R 
-    R_ratio = R_pl / Stellar_R
+    # R_ratio = R_pl / Stellar_R
+    R_ratio=(R_pl*Jupiter_R/Stellar_R)/Stellar_R
 
     position = -1 * Impact_params
 
