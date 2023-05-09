@@ -2,6 +2,13 @@ import batman
 import numpy as np
 
 def batman_plot(t0, rp, a, inc, JD, nor_flux, err_flux):
+    
+    Rsun = 6.96e+8
+    Rstar = 0.77 * Rsun
+
+    rp = (6.99e+7*rp)/Rstar
+    a = (1.49e+11*a)/Rstar
+
 
     params = batman.TransitParams()
     params.t0 = t0  # time of inferior conjunction
