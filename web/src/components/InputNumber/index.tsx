@@ -1,4 +1,6 @@
 import { classNames } from 'utils'
+import { useDebounce } from 'usehooks-ts'
+import { useEffect } from 'react'
 
 interface InputNumberProps {
   title?: string
@@ -18,20 +20,13 @@ const InputNumber = (props: InputNumberProps) => {
   const { unit, unitDescription } = props
   const { value, minValue, maxValue, step, setValue } = props
   const { disabled } = props
+  const debouncedValue = useDebounce<number>(value || 0, 500)
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     if (setValue) {
       const newValue = parseFloat(e.target.value)
-      if (minValue !== undefined && maxValue !== undefined) {
-        setValue(Math.min(Math.max(newValue, minValue), maxValue))
-      } else if (maxValue !== undefined) {
-        setValue(Math.min(newValue, maxValue))
-      } else if (minValue !== undefined) {
-        setValue(Math.max(newValue, minValue))
-      } else {
-        setValue(newValue)
-      }
+      setValue(newValue)
     }
   }
 
@@ -58,6 +53,18 @@ const InputNumber = (props: InputNumberProps) => {
       }
     }
   }
+
+  useEffect(() => {
+    if (debouncedValue !== value && value && setValue) {
+      if (minValue !== undefined && maxValue !== undefined) {
+        setValue(Math.min(Math.max(value, minValue), maxValue))
+      } else if (maxValue !== undefined) {
+        setValue(Math.min(value, maxValue))
+      } else if (minValue !== undefined) {
+        setValue(Math.max(value, minValue))
+      }
+    }
+  }, [debouncedValue, value, setValue, minValue, maxValue])
 
   return (
     <div className="flex w-full flex-row items-center justify-center">
